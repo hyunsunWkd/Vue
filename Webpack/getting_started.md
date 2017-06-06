@@ -92,6 +92,7 @@
 
 #### Using webpack with a config
 * 더욱 복잡한 구성을 위해, webpack이 code를 bundle하기 위해 참조할 수 있는 configuration file을 사용할 수 있다.
+* **CLI만 이용해서 webpack을 사용할 수도 있지만 명령어가 금방 복잡해지고 한계가 생기므로 설정파일을 사용하는 것이 일반적이다.**
 * webpack.config.js
 ```javascript
 var path = require('path');
