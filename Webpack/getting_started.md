@@ -11,8 +11,10 @@
   * 코드 최적화
   * 생산성을 위해 vendor/css/js 코드 분리
   * 페이지 새로고침과 많은 멋진 기능 없이 코드를 hot-reload하는 개발 서버를 실행
+  * 컴파일이 매우 빠름
 
 #### creating a bundle
+* webpack은 Node.js가 설치된 환경에서 실행된다.
 `mkdir webpack-demo && cd webpack-demo`<br>
 `npm init -y`<br>
 `npm install --save-dev webpack`
@@ -68,9 +70,13 @@
 * 그런 다음 그래프를 사용하여 스크립트가 올바른 순서로 실행되는 최적화 된 번들을 생성한다. 또한 사용되지 않는 종속성은 번틀에 포함되지 않는다.
 
 * 이제 이 폴더에서 index.js 파일을 입력파일로 사용하고 bundle.js 파일을 페이지에 필요한 모든 코드가 묶여진(bundled) 출력파일로 사용하여 webpack을 실행시킨다.
+
   ```
+  webpack {entry file경로} {bundle file경로}
   webpack app/index.js dist/bundle.js
   ```
+  * entry file: 서로 의존 관계에 있는 다양한 모듈을 사용하는 시작점이 되는 파일
+  * bundle file: 브라우저에서 실행할 수 있게 모듈을 컴파일한 파일
   ```
   Hash: d59c490051abb2f18aa1
   Version: webpack 2.6.1
@@ -92,20 +98,27 @@
 
 #### Using webpack with a config
 * 더욱 복잡한 구성을 위해, webpack이 code를 bundle하기 위해 참조할 수 있는 configuration file을 사용할 수 있다.
-* **CLI만 이용해서 webpack을 사용할 수도 있지만 명령어가 금방 복잡해지고 한계가 생기므로 설정파일을 사용하는 것이 일반적이다.**
+* **CLI만 이용해서 webpack을 사용할 수도 있지만 명령어가 금방 복잡해지고 한계가 생기므로 설정파일을 사용하는 것이 일반적이다.(엔트리 파일이 많거나 옵션이 많은 경우)**
 * webpack.config.js
 ```javascript
 var path = require('path');
 
 module.exports = {
+  // 엔트리 파일 목록
   entry: './app/index.js',
   output: {
+    // 번들 파일 이름 규칙
     filename: 'bundle.js',
+    // 번들 파일 폴더
     path: path.resolve(__dirname, 'dist')
   }
 };
 ```
 ```webpack --config webpack.config.js```
+```
+webpack // 컴파일 실행
+webpack --watch // 변경사항 자동 반영
+```
 ```
 Hash: d59c490051abb2f18aa1
 Version: webpack 2.6.1
