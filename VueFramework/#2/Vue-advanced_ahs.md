@@ -10,6 +10,8 @@
 * 모든 component instance는 해당하는 관찰자 instance가 있으며, 이것은 component가 dependency로써 렌더링하는동안 수정된 모든 속성을 기록한다.
 * 나중에 dependency의 setter이 트리거되면, 관찰자에게 알리고 component가 다시 렌더링된다.
 
+  ![Image](vue-reactivity.PNG)
+
 ### Change Detection Caveats(변경 감지 경고)
 * 최신 JavaScript의 한계로 Vue는 속성 추가 또는 삭제를 감지할 수 없다.
 * Vue는 instance초기화 중에 getter/setter 변환 프로세스를 수행하므로, Vue가 데이터를 변환하고 응답할 수 있도록 속성이 데이터 객체에 있어야 한다.
