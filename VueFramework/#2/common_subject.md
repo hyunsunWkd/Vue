@@ -53,5 +53,48 @@ var vm = new Vue({
 ### Computed Properties and Watchers
 
 #### Computed Properties
+* 템플릿 내 표현식은 매우 편리하지만, 실제로는 단순한 연산에만 사용된다. 너무 많은 logic을 템플릿에 넣으면 부풀려지거나 유지하기가 어려워질 수 있다.
+```js
+<div id="example">
+  {{ message.split('').reverse().join('') }}
+  </div>
+  ```
+  * 여기서, 템플릿은 더이상 간단하지 않고 선언적이다. message를 역순으로 표시한다는 것을 알기 전에 잠깐 봐야한다. 템플릿에 역순 메세지는 두 번 이상 포함하려는 경우 문제가 악화된다.
+* 그렇기 떄문에 복잡한 논리의 경우 계산된 속성을 사용해야 한다.
+
+* basic example
+```html
+<div id="example">
+  <p>Original message: "{{ message }}"</p>
+  <p>Computed reversed message: "{{ reversedMessage }}"</p>
+</div>
+```
+```js
+var vm = new Vue({
+  el: '#example',
+  data: {
+    message: 'Hello'
+  },
+  computed: {
+    // a computed getter
+    reversedMessage: function () {
+      // `this` points to the vm instance
+      return this.message.split('').reverse().join('')
+    }
+  }
+})
+```
+* 여기에서 우리는 계산된 속성 reversedMessage를 선언했다. 우리가 제공한 함수는 vm.reversedMessage 속성에 대한 getter 함수로 사용된다.
+
+```js
+console.log(vm.reversedMessage) // -> 'olleH'
+vm.message = 'Goodbye'
+console.log(vm.reversedMessage) // -> 'eybdooG'
+```
+
+* 일반 속성처럼 템플릿의 계산된 속성에 데이터를 바인딩할 수 있다. Vue는 vm.reversedMessage가 vm.message에 종속되어 있음을 알고 있으므로 vm.message가 변경되면 vm.reversedMessage에 종속된 바인딩을 모두 업데이트한다. 그리고 가장 중요한 부분은 선언적으로 종속성 관계를 만들었다는 것이다. 계산된 getter함수에는 부작용이 없으므로 테스트하고 추론하기 쉽다.
+
+* Computed Caching vs Methods
+
 
 #### Watchers
