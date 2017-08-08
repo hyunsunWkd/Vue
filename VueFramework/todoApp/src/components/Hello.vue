@@ -12,7 +12,7 @@
         <button @click="editTodo(todo)">edit</button>
         <input class="edit" type="text" v-model="todo.title" v-todo-focus="todo == editTodo"
         @blur="doneEdit(todo)"
-        @keyup.enter="doneEdit(todo)" @keyup.esc="cancelEdit(todo)"
+        @keyup.enter="doneEdit(todo)" @keyup.esc="cancelEdit(todo)">
       </li>
     </ul>
 
