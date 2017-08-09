@@ -25,7 +25,9 @@ export default {
   },
   created() {
     for (var key in localStorage) {
-      this.todoItems.push(key)
+      this.todoItems.push({
+          title: key
+        })
     }
   }
 }

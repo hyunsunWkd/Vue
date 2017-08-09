@@ -19,7 +19,9 @@ export default {
     addTodo() {
       if(this.newItem !== '') {
         localStorage.setItem(this.newItem, this.newItem)
-        this.passedData.push(this.newItem)
+        this.passedData.push({
+          title: this.newItem
+        })
         this.newItem = ''
       }
     }
