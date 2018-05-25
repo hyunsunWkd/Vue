@@ -1,16 +1,12 @@
 {
-  "name": "onepage",
+  "name": "route",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.18.0",
-    "promise-polyfill": "^7.1.2",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
-    "react-scripts": "1.1.4",
-    "semantic-ui-css": "^2.3.1",
-    "semantic-ui-react": "^0.80.0",
-    "surge": "^0.20.1"
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
