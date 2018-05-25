@@ -1,0 +1,16 @@
+/* 알림창의 베이스 div의 레이아웃 (모든화면위로 배치) */
+.AlertBase {
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+/* 알림참 스타일 */
+.Alert {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 1.5rem;
+}

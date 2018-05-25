@@ -1,0 +1,10 @@
+/* 헤더 부분의 스타일 */
+.Header {
+    background: #FFE400;
+    color: black;
+    font-size: 2rem;
+    padding: 1.3rem;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 1.8rem
+}

@@ -1,0 +1,13 @@
+/* 본문에 가장 베이스 css */
+.PostingUI {
+    margin: 0 auto;
+    width: 50rem;
+
+}
+/* 반응형 웹 */
+@media (max-width: 768px) {
+    /* pc 일반 화면에서는 90%만 사용 */
+    .PostingUI {
+        width: 90%;
+    }
+}

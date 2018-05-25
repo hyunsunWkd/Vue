@@ -1,0 +1,7 @@
+/* 댓글 리스트 스타일 */
+.CommentList {
+    background-color: aliceblue;
+    padding: 1rem;
+    border-radius: 6px;
+    list-style-type: none;
+}

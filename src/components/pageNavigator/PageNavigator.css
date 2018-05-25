@@ -1,0 +1,16 @@
+/* 페이지 이동 네비게이터 메일 */
+.PageNavigator {
+    position: relative;
+}
+/* 글 제목 */
+.pn_title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%)
+}
+/* 오른쪽 버튼 */
+.pn_next_btn {
+    float: right;
+    margin: 0;
+}
